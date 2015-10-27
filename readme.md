@@ -21,4 +21,4 @@ Package control script modifier
   - arc's "entry" is replaced with inside dir.
 - updatepkgscripts -x arc entry [dir]
   - arc's "entry" is extracted to dir.
-- To investigate about entry, use `tar -tf`.
+- To investigate about entry, use `xar -tf`.
