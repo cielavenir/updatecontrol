@@ -1,8 +1,8 @@
 #!/usr/bin/ruby
 #updatecontrol by cielavenir.
 
-arc=ARGV[0]||''
-dir=ARGV[1]||'.'
+arc=File.expand_path(ARGV[0]||'')
+dir=File.expand_path(ARGV[1]||'.')
 if !File.file?(arc) || !File.directory?(dir)
 	STDERR.puts 'updatecontrol arc [dir]'
 	exit(1)
