@@ -3,12 +3,12 @@
 
 arc="$1"
 dir="$2"
-if [ "x$dir" == "x" ];then
+if [ "x$dir" = "x" ];then
   dir="."
 fi
 arc=`realpath "$arc" 2>/dev/null`
 dir=`realpath "$dir" 2>/dev/null`
-if [ "x$arc" == "x" ] || [ "x$dir" == "x" ];then
+if [ "x$arc" = "x" ] || [ "x$dir" = "x" ];then
   echo updatecontrol arc [dir]
   exit 1
 fi
