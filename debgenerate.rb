@@ -13,7 +13,11 @@ Dir.chdir(DIR_NAME)
 File.write('control',DATA.read.gsub('__PACKAGE__',PACKAGE).gsub('__VERSION__',VERSION))
 system('tar -czf control.tar.gz control')
 File.unlink('control')
-File.open('data.tar.gz','wb'){|f|f.write(EMPTY_TAR_GZ)}
+
+#File.open('data.tar.gz','wb'){|f|f.write(EMPTY_TAR_GZ)}
+FileUtils.mkdir_p('usr/share/doc/' + PACKAGE)
+system('tar -czf data.tar.gz usr')
+
 File.open('debian-binary','wb'){|f|f.write("2.0\n")}
 system("ar crus ../#{PACKAGE}_#{VERSION}_all.deb debian-binary control.tar.gz data.tar.gz")
 Dir.chdir('..')
